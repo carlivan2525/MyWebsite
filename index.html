@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl's Space</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .main-content {
+            transition: filter 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            height: 100vh;
+        }
+
+        .blurred {
+            filter: blur(8px);
+        }
+
+        .container {
+            margin: auto;
+            width: 80%; 
+            max-width: 800px; 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+
+        .avatar {
+            width: 250px; 
+            height: 250px;
+            border-radius: 50%;
+            border: 3px solid #444;
+            box-shadow: 0 0 15px #222;
+            object-fit: cover;
+            animation: subtle-glow 2s infinite alternate;
+        }
+
+        @keyframes subtle-glow {
+            from { box-shadow: 0 0 10px #222; }
+            to { box-shadow: 0 0 20px #333; }
+        }
+
+        .glow-text {
+            font-size: 48px; 
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 0 0 5px #222, 0 0 15px #333;
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+
+        .intro {
+            font-size: 24px; 
+            max-width: 700px;
+            margin: 10px auto;
+            color: #bbb;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+
+        .neon-button {
+            background-color: #222;
+            border: none;
+            padding: 15px 30px;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #333, 0 0 20px #222;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .neon-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #444;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 50%;
+            background: rgba(20, 20, 20, 0.95);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #333;
+            z-index: 2;
+        }
+
+        .popup-content {
+            width: 90%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .close-btn {
+            background-color: #222;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #444;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1;
+        }
+
+        .project {
+            width: 200px;
+            transition: filter 0.3s;
+        }
+
+        .project:hover {
+            filter: blur(4px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="overlay" id="overlay"></div>
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <img src="avatar.jpg" alt="Avatar" class="avatar">
+            <h1 class="glow-text">WELCOME TO MY SPACE</h1>
+            <p class="intro">Hello! I am Carl Ivan Ken Simbulan, a second-year BSIT student at National University Laguna.</p>
+            <div class="button-container">
+                <button class="neon-button" onclick="openPopup('portfolio')">Portfolio</button>
+                <button class="neon-button" onclick="openPopup('contact')">Contact</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="portfolioPopup">
+        <div class="popup-content">
+            <h2 class="glow-text">MY PORTFOLIO</h2>
+            <p>Check out my latest projects!</p>
+            <a href="https://github.com/carlivan2525/Nuask" target="_blank"><img src="NUask.jpg" alt="Project 1" class="project"></a>
+            <a href="https://github.com/carlivan2525/CarWash" target="_blank"><img src="carrental.jpg" alt="Project 2" class="project"></a>
+            <br>
+            <button class="close-btn" onclick="closePopup('portfolio')">Close</button>
+        </div>
+    </div>
+    <div class="popup" id="contactPopup">
+        <div class="popup-content">
+            <h2 class="glow-text">CONTACT ME</h2>
+            <p>Email: carlivan252003@gmail.com</p>
+            <p>Phone: +9690583188</p>
+            <button class="close-btn" onclick="closePopup('contact')">Close</button>
+        </div>
+    </div>
+    <script>
+        function openPopup(type) {
+            document.getElementById(type + "Popup").style.display = "flex";
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("mainContent").classList.add("blurred");
+        }
+
+        function closePopup(type) {
+            document.getElementById(type + "Popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("mainContent").classList.remove("blurred");
+        }
+    </script>
+</body>
+</html>
