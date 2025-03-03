@@ -42,20 +42,19 @@
 
         .container {
             margin: auto;
-            width: 80%; 
+            width: 90%; 
             max-width: 800px; 
             animation: fadeIn 0.5s ease-in-out; 
         }
 
         .avatar {
-            width: 250px; 
-            height: 250px;
-            border-radius: 50%;
-            border: 3px solid #444;
-            box-shadow: 0 0 15px #222;
-            object-fit: cover;
-            animation: subtle-glow 2s infinite alternate;
-        }
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    border: 3px solid #444;
+    box-shadow: 0 0 15px #222;
+    object-fit: cover;
+}
 
         @keyframes subtle-glow {
             from { box-shadow: 0 0 10px #222; }
@@ -63,7 +62,7 @@
         }
 
         .glow-text {
-            font-size: 48px; 
+            font-size: 6vw; 
             text-transform: uppercase;
             font-weight: bold;
             text-shadow: 0 0 5px #222, 0 0 15px #333;
@@ -71,7 +70,7 @@
         }
 
         .intro {
-            font-size: 24px; 
+            font-size: 4vw; 
             max-width: 700px;
             margin: 10px auto;
             color: #bbb;
@@ -88,7 +87,7 @@
             border: none;
             padding: 15px 30px;
             margin: 15px;
-            font-size: 20px;
+            font-size: 4vw;
             font-weight: bold;
             cursor: pointer;
             color: white;
@@ -108,8 +107,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50%;
-            height: 50%;
+            width: 80%;
+            max-width: 600px;
+            height: auto;
             background: rgba(20, 20, 20, 0.95);
             justify-content: center;
             align-items: center;
@@ -130,7 +130,7 @@
             border: none;
             padding: 12px 25px;
             margin-top: 15px;
-            font-size: 18px;
+            font-size: 4vw;
             font-weight: bold;
             cursor: pointer;
             color: white;
@@ -157,7 +157,8 @@
         }
 
         .project {
-            width: 200px;
+            width: 100%; 
+            max-width: 200px; 
             transition: filter 0.3s;
         }
 
@@ -168,6 +169,25 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+       
+        @media (min-width: 768px) {
+            .glow-text {
+                font-size: 48px; 
+            }
+
+            .intro {
+                font-size: 24px; 
+            }
+
+            .neon-button {
+                font-size: 20px; 
+            }
+
+            .close-btn {
+                font-size: 18px; 
+            }
         }
     </style>
 </head>
